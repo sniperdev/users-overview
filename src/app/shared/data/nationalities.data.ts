@@ -1,6 +1,6 @@
 import {Nationality} from "../interfaces/nationality.interface";
 
-export const Nationalities: Nationality[] = [
+  export const NATIONALITIES: Nationality[] = [
   { name: 'Australia', value: 'au' },
   { name: 'Brazylia', value: 'br' },
   { name: 'Kanada', value: 'ca' },
