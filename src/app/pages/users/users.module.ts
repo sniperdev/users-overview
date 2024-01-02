@@ -15,9 +15,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UsersTableComponent } from './components/users-table/users-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
-  declarations: [UsersComponent, AddUserModalComponent, UsersTableComponent],
+  declarations: [
+    UsersComponent,
+    AddUserModalComponent,
+    UsersTableComponent,
+    UserDetailsComponent,
+  ],
   imports: [
     CommonModule,
     UsersRoutingModule,
