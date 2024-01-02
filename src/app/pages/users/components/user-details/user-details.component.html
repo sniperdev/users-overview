@@ -1,1 +1,18 @@
-<p>user-details works!</p>
+<app-wrapper>
+  <ng-container *ngIf="currentUser; else isEmpty">
+    <h1>User details</h1>
+    <img src="{{currentUser.picture.large}}" alt="User image">
+    <p><strong>First Name:</strong> {{ currentUser.name.first }}</p>
+    <p><strong>Last Name:</strong> {{ currentUser.name.last }}</p>
+    <p><strong>Email:</strong> {{ currentUser.email }}</p>
+    <p><strong>Username:</strong> {{ currentUser.login.username }}</p>
+    <p><strong>Phone:</strong> {{ currentUser.phone }}</p>
+
+    <p><strong>Address:</strong> {{ currentUser.location.street.name }} {{ currentUser.location.street.number }}</p>
+  </ng-container>
+
+
+  <ng-template #isEmpty>
+    <p class="empty-table-text">User is empty</p>
+  </ng-template>
+</app-wrapper>
