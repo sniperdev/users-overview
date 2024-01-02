@@ -31,7 +31,7 @@ export class UsersTableComponent implements AfterViewInit {
   ) {}
 
   public navigateToDetails(user: User) {
-    this.router.navigate([`user-details/${user.id.value}`], {
+    this.router.navigate([`user-details/${user.id.name}`], {
       relativeTo: this.route,
     });
   }
