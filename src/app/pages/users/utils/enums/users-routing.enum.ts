@@ -1,3 +1,4 @@
 export enum UsersRoutingEnum {
-  home = "",
+  home = '',
+  userDetails = 'user-details/:name',
 }
