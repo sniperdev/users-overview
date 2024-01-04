@@ -16,6 +16,7 @@ import { UsersTableComponent } from './components/users-table/users-table.compon
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -24,21 +25,22 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     UsersTableComponent,
     UserDetailsComponent,
   ],
-  imports: [
-    CommonModule,
-    UsersRoutingModule,
-    SharedModule,
-    MatButtonModule,
-    MatIconModule,
-    MatDialogModule,
-    MatInputModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatCheckboxModule,
-    NgOptimizedImage,
-    MatProgressSpinnerModule,
-    MatTableModule,
-    MatSortModule,
-  ],
+	imports: [
+		CommonModule,
+		UsersRoutingModule,
+		SharedModule,
+		MatButtonModule,
+		MatIconModule,
+		MatDialogModule,
+		MatInputModule,
+		MatSelectModule,
+		ReactiveFormsModule,
+		MatCheckboxModule,
+		NgOptimizedImage,
+		MatProgressSpinnerModule,
+		MatTableModule,
+		MatSortModule,
+		MatPaginatorModule,
+	],
 })
 export class UsersModule {}

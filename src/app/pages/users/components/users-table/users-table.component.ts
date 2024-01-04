@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { User } from '../../../../shared/interfaces/user.interface';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-users-table',
@@ -10,14 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./users-table.component.scss'],
 })
 export class UsersTableComponent implements AfterViewInit {
-  // @Input() users: User[] | null = [];
   @Input() set users(users: User[] | null) {
     this.dataSource = new MatTableDataSource<User>(users as User[]);
-    this.dataSource.sort = this.sort;
-    // console.log(this.dataSource, users);
+    this.dataSource.paginator = this.paginator;
   }
-  @ViewChild(MatSort) sort!: MatSort;
-  dataSource = new MatTableDataSource<User>(this.users as User[]);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  protected dataSource = new MatTableDataSource<User>(this.users as User[]);
   protected displayedColumns: string[] = [
     'name',
     'lastname',
@@ -39,7 +37,8 @@ export class UsersTableComponent implements AfterViewInit {
   protected getName(user: User) {
     return user.name.first;
   }
+
   ngAfterViewInit() {
-    // this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 }
