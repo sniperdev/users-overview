@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>Edit user</h2>
+<mat-dialog-content>
+  <form [formGroup]="userForm" class="form" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Surname</mat-label>
+        <input matInput formControlName="surname">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="male">
+            <mat-icon>man</mat-icon>
+            Male
+          </mat-option>
+          <mat-option value="female">
+            <mat-icon>woman</mat-icon>
+            Female
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
+      </mat-form-field>
+      <mat-form-field class="form-field-spacer">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let nationality of nationalities" value="{{nationality.value}}">
+            <img [src]="getNationalityFlag(nationality.value)"/>
+            {{nationality.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button mat-dialog-close type="submit" color="primary">Submit</button>
+  </form>
+</mat-dialog-content>

@@ -1,21 +1,21 @@
-import {Nationality} from "../interfaces/nationality.interface";
+import { Nationality } from '../interfaces/nationality.interface';
 
-  export const NATIONALITIES: Nationality[] = [
+export const NATIONALITIES: Nationality[] = [
   { name: 'Australia', value: 'au' },
-  { name: 'Brazylia', value: 'br' },
-  { name: 'Kanada', value: 'ca' },
-  { name: 'Szwajcaria', value: 'ch' },
-  { name: 'Niemcy', value: 'de' },
-  { name: 'Dania', value: 'dk' },
-  { name: 'Hiszpania', value: 'es' },
-  { name: 'Finlandia', value: 'fi' },
-  { name: 'Francja', value: 'fr' },
-  { name: 'Wielka Brytania', value: 'gb' },
-  { name: 'Irlandia', value: 'ie' },
+  { name: 'Brazil', value: 'br' },
+  { name: 'Canada', value: 'ca' },
+  { name: 'Switzerland', value: 'ch' },
+  { name: 'Germany', value: 'de' },
+  { name: 'Denmark', value: 'dk' },
+  { name: 'Spain', value: 'es' },
+  { name: 'Finland', value: 'fi' },
+  { name: 'France', value: 'fr' },
+  { name: 'United Kingdom', value: 'gb' },
+  { name: 'Ireland', value: 'ie' },
   { name: 'Iran', value: 'ir' },
-  { name: 'Norwegia', value: 'no' },
-  { name: 'Holandia', value: 'nl' },
-  { name: 'Nowa Zelandia', value: 'nz' },
-  { name: 'Turcja', value: 'tr' },
-  { name: 'Stany Zjednoczone', value: 'us' },
+  { name: 'Norway', value: 'no' },
+  { name: 'Netherlands', value: 'nl' },
+  { name: 'New Zealand', value: 'nz' },
+  { name: 'Turkey', value: 'tr' },
+  { name: 'United States', value: 'us' },
 ];

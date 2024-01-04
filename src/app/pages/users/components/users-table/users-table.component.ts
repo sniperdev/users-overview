@@ -3,6 +3,8 @@ import { User } from '../../../../shared/interfaces/user.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 
 @Component({
   selector: 'app-users-table',
@@ -21,12 +23,31 @@ export class UsersTableComponent implements AfterViewInit {
     'lastname',
     'country',
     'gender',
+    'options',
   ];
 
   constructor(
+    private dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
   ) {}
+
+  protected editUser(user: User) {
+    this.dialog.open(EditUserModalComponent, {
+      height: '500px',
+      width: '600px',
+      data: {
+        user,
+        dataSource: this.dataSource,
+      },
+    });
+  }
+
+  protected deleteUser(user: User) {
+    this.dataSource.data = this.dataSource.data.filter(
+      (element) => element.id.name !== user.id.name,
+    );
+  }
 
   public navigateToDetails(user: User) {
     this.router.navigate([`user-details/${user.id.name}`], {

@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     AddUserModalComponent,
     UsersTableComponent,
     UserDetailsComponent,
+    EditUserModalComponent,
   ],
 	imports: [
 		CommonModule,

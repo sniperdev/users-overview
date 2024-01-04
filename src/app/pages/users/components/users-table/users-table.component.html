@@ -20,9 +20,23 @@
         <mat-icon [fontIcon]="element.gender"></mat-icon>
       </td>
     </ng-container>
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef>Options</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-mini-fab color="primary" (click)="navigateToDetails(element)" aria-label="Edit user">
+          <mat-icon>open_in_new</mat-icon>
+        </button>
+        <button mat-mini-fab (click)="editUser(element)" class="option-buttons-spacer"  aria-label="Edit user">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn" (click)="deleteUser(element)" class="option-buttons-spacer" aria-label="Delete user">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="navigateToDetails(row)"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   <mat-paginator
     [pageSize]="10"
