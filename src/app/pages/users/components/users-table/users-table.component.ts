@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  Input,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { User } from '../../../../shared/interfaces/user.interface';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -6,19 +12,18 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 import { DeleteUserModalComponent } from '../delete-user-modal/delete-user-modal.component';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-users-table',
   templateUrl: './users-table.component.html',
   styleUrls: ['./users-table.component.scss'],
 })
-export class UsersTableComponent implements AfterViewInit {
-  @Input() set users(users: User[] | null) {
-    this.dataSource = new MatTableDataSource<User>(users as User[]);
-    this.dataSource.paginator = this.paginator;
-  }
+export class UsersTableComponent implements AfterViewInit, OnDestroy {
+  @Input() users$!: Observable<User[] | null>;
+  private usersSubscription!: Subscription;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  protected dataSource = new MatTableDataSource<User>(this.users as User[]);
+  protected dataSource = new MatTableDataSource<User>();
   protected displayedColumns: string[] = [
     'name',
     'lastname',
@@ -69,6 +74,13 @@ export class UsersTableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.usersSubscription = this.users$.subscribe((users) => {
+      this.dataSource = new MatTableDataSource<User>(users as User[]);
+      this.dataSource.paginator = this.paginator;
+    });
+  }
+
+  ngOnDestroy() {
+    this.usersSubscription.unsubscribe();
   }
 }
