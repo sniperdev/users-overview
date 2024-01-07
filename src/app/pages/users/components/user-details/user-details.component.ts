@@ -33,7 +33,9 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.users$
-      .pipe(map((users) => users.find((user) => user.id.name === this.userId)))
+      .pipe(
+        map((users) => users.find((user) => user.login.uuid === this.userId)),
+      )
       .subscribe((user) => (this.currentUser = user));
   }
 }

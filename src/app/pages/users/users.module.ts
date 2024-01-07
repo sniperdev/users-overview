@@ -19,6 +19,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
 import {MatCardModule} from "@angular/material/card";
+import { DeleteUserModalComponent } from './components/delete-user-modal/delete-user-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatCardModule} from "@angular/material/card";
     UsersTableComponent,
     UserDetailsComponent,
     EditUserModalComponent,
+    DeleteUserModalComponent,
   ],
   imports: [
     CommonModule,

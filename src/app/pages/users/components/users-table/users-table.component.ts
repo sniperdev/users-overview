@@ -45,12 +45,12 @@ export class UsersTableComponent implements AfterViewInit {
 
   protected deleteUser(user: User) {
     this.dataSource.data = this.dataSource.data.filter(
-      (element) => element.id.name !== user.id.name,
+      (element) => element.login.uuid !== user.login.uuid,
     );
   }
 
   public navigateToDetails(user: User) {
-    this.router.navigate([`user-details/${user.id.name}`], {
+    this.router.navigate([`user-details/${user.login.uuid}`], {
       relativeTo: this.route,
     });
   }
