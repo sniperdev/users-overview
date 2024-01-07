@@ -49,8 +49,7 @@ export class UsersTableComponent implements AfterViewInit {
       height: '180px',
       width: '500px',
       data: {
-        user,
-        dataSource: this.dataSource,
+        uuid: user.login.uuid,
       },
     });
   }

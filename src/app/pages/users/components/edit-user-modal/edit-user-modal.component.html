@@ -1,14 +1,14 @@
 <h2 mat-dialog-title>Edit user</h2>
 <mat-dialog-content>
   <form [formGroup]="userForm" class="form" (ngSubmit)="onSubmit()">
-    <div>
+    <div formGroupName="name">
       <mat-form-field class="form-field-spacer">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name">
+        <input matInput formControlName="first">
       </mat-form-field>
       <mat-form-field class="form-field-spacer">
         <mat-label>Surname</mat-label>
-        <input matInput formControlName="surname">
+        <input matInput formControlName="last">
       </mat-form-field>
     </div>
     <div>
@@ -35,7 +35,7 @@
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
       </mat-form-field>
-      <mat-form-field class="form-field-spacer">
+      <mat-form-field class="form-field-spacer" formGroupName="login">
         <mat-label>Username</mat-label>
         <input matInput formControlName="username">
       </mat-form-field>
@@ -45,10 +45,10 @@
         <mat-label>Address</mat-label>
         <input matInput formControlName="address">
       </mat-form-field>
-      <mat-form-field class="form-field-spacer">
+      <mat-form-field class="form-field-spacer" formGroupName="location">
         <mat-label>Country</mat-label>
         <mat-select formControlName="country">
-          <mat-option *ngFor="let nationality of nationalities" value="{{nationality.value}}">
+          <mat-option *ngFor="let nationality of nationalities" value="{{nationality.name}}">
             <img [src]="getNationalityFlag(nationality.value)"/>
             {{nationality.name}}
           </mat-option>

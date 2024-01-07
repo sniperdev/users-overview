@@ -44,4 +44,24 @@ export class UserService {
     };
     return this.http.get(environment.apiUrl, body);
   }
+
+  public deleteUser(uuid: string): void {
+    const users = this.users.getValue();
+    const userIndex = users.findIndex((user) => user.login.uuid === uuid);
+
+    if (userIndex !== -1) {
+      users.splice(userIndex, 1);
+      this.users.next(users);
+    }
+  }
+
+  public editUser(user: User, uuid: string): void {
+    const users = this.users.getValue();
+    const userIndex = users.findIndex((u) => u.login.uuid === uuid);
+
+    if (userIndex !== -1) {
+      users[userIndex] = user;
+      this.users.next(users);
+    }
+  }
 }

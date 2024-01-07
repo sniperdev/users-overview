@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { User } from '../../../../shared/interfaces/user.interface';
-import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from '../../../../shared/services/user.service';
 
 @Component({
   selector: 'app-delete-user-modal',
@@ -11,11 +10,10 @@ import { MatTableDataSource } from '@angular/material/table';
 export class DeleteUserModalComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
-    private data: { user: User; dataSource: MatTableDataSource<User> },
+    private data: { uuid: string },
+    private userService: UserService,
   ) {}
   protected onDelete(): void {
-    this.data.dataSource.data = this.data.dataSource.data.filter(
-      (element) => element.login.uuid !== this.data.user.login.uuid,
-    );
+    this.userService.deleteUser(this.data.uuid);
   }
 }
