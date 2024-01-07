@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
+import { DeleteUserModalComponent } from '../delete-user-modal/delete-user-modal.component';
 
 @Component({
   selector: 'app-users-table',
@@ -44,9 +45,14 @@ export class UsersTableComponent implements AfterViewInit {
   }
 
   protected deleteUser(user: User) {
-    this.dataSource.data = this.dataSource.data.filter(
-      (element) => element.login.uuid !== user.login.uuid,
-    );
+    this.dialog.open(DeleteUserModalComponent, {
+      height: '180px',
+      width: '500px',
+      data: {
+        user,
+        dataSource: this.dataSource,
+      },
+    });
   }
 
   public navigateToDetails(user: User) {
