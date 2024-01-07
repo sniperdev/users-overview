@@ -1,14 +1,42 @@
 <app-wrapper>
   <ng-container *ngIf="currentUser; else isEmpty">
-    <h1>User details</h1>
-    <img src="{{currentUser.picture.large}}" alt="User image">
-    <p><strong>First Name:</strong> {{ currentUser.name.first }}</p>
-    <p><strong>Last Name:</strong> {{ currentUser.name.last }}</p>
-    <p><strong>Email:</strong> {{ currentUser.email }}</p>
-    <p><strong>Username:</strong> {{ currentUser.login.username }}</p>
-    <p><strong>Phone:</strong> {{ currentUser.phone }}</p>
+    <mat-card-header>
+      <button mat-icon-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-card-header>
+    <div class="user-details-container">
+      <div class="user-details">
+        <div>
+          <img src="{{currentUser.picture.large}}" alt="User image" class="user-avatar">
+        </div>
+        <div class="user-details-info-container">
+          <h1 class="user-header-text">{{ currentUser.name.first }} {{ currentUser.name.last }}</h1>
+          <div class="user-details-info">
+            <img [src]="getNationalityFlag()" alt="" width="24px" height="24px"/>
+            <p>{{ currentUser.location.country }}</p>
+          </div>
+          <div class="user-details-info">
+            <mat-icon fontIcon="location_on"></mat-icon>
+            <p>{{ currentUser.location.street.name }} {{ currentUser.location.street.number }}</p>
+          </div>
+          <hr>
+          <div class="user-details-info">
+            <mat-icon fontIcon="phone_iphone"></mat-icon>
+            <p>{{ currentUser.phone }}</p>
+          </div>
 
-    <p><strong>Address:</strong> {{ currentUser.location.street.name }} {{ currentUser.location.street.number }}</p>
+          <div class="user-details-info">
+            <mat-icon fontIcon="mail"></mat-icon>
+            <p>{{ currentUser.email }}</p>
+          </div>
+          <div class="user-details-info">
+            <mat-icon fontIcon="cake"></mat-icon>
+            <p>{{ currentUser.dob.date.slice(0, 10) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </ng-container>
 
 

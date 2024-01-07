@@ -34,8 +34,8 @@ export class UsersTableComponent implements AfterViewInit {
 
   protected editUser(user: User) {
     this.dialog.open(EditUserModalComponent, {
-      height: '500px',
-      width: '600px',
+      height: '450px',
+      width: '540px',
       data: {
         user,
         dataSource: this.dataSource,
@@ -53,6 +53,10 @@ export class UsersTableComponent implements AfterViewInit {
     this.router.navigate([`user-details/${user.id.name}`], {
       relativeTo: this.route,
     });
+  }
+
+  protected getNationalityFlag(nationality: string): string {
+    return `https://flagcdn.com/16x12/${nationality.toLowerCase()}.png`;
   }
 
   protected getName(user: User) {

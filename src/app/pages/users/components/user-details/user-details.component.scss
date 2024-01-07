@@ -1,0 +1,35 @@
+.user-header-text{
+  line-height: 48px;
+}
+
+.user-details-container{
+  margin: 0 4rem 4rem;
+
+  .user-details{
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .user-avatar{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+  .user-details-info-container{
+    width: 400px;
+    line-height: 24px;
+    hr{
+      margin: 0.5rem 0;
+    }
+  }
+  .user-details-info{
+    display: flex;
+    gap: 1rem;
+    margin: 0.2rem 0;
+    p{
+      margin: 0;
+    }
+  }
+}
+
+

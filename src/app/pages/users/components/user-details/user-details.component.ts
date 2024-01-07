@@ -23,6 +23,14 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
+  protected getNationalityFlag() {
+    return `https://flagcdn.com/16x12/${this.currentUser?.nat.toLowerCase()}.png`;
+  }
+
+  protected goBack(): void {
+    window.history.back();
+  }
+
   ngOnInit() {
     this.users$
       .pipe(map((users) => users.find((user) => user.id.name === this.userId)))

@@ -1,5 +1,5 @@
-<ng-container *ngIf="dataSource.data">
-  <table mat-table [dataSource]="dataSource" *ngIf="dataSource.data.length; else isEmpty">
+<ng-container *ngIf="dataSource.data.length; else isEmpty">
+  <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element"> {{ getName(element) }}</td>
@@ -11,7 +11,7 @@
 
     <ng-container matColumnDef="country">
       <th mat-header-cell *matHeaderCellDef>Country</th>
-      <td mat-cell *matCellDef="let element"> {{ element.location.country }}</td>
+      <td mat-cell *matCellDef="let element"> <img [src]="getNationalityFlag(element.nat)" alt=""/> {{ element.location.country }}</td>
     </ng-container>
 
     <ng-container matColumnDef="gender">
@@ -23,13 +23,13 @@
     <ng-container matColumnDef="options">
       <th mat-header-cell *matHeaderCellDef>Options</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-mini-fab color="primary" (click)="navigateToDetails(element)" aria-label="Edit user">
+        <button mat-icon-button color="primary" (click)="navigateToDetails(element)" aria-label="Edit user">
           <mat-icon>open_in_new</mat-icon>
         </button>
-        <button mat-mini-fab (click)="editUser(element)" class="option-buttons-spacer"  aria-label="Edit user">
+        <button mat-icon-button (click)="editUser(element)" class="option-buttons-spacer"  aria-label="Edit user">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-mini-fab color="warn" (click)="deleteUser(element)" class="option-buttons-spacer" aria-label="Delete user">
+        <button mat-icon-button color="warn" (click)="deleteUser(element)" class="option-buttons-spacer" aria-label="Delete user">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
@@ -43,6 +43,15 @@
     [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 </ng-container>
+
 <ng-template #isEmpty>
-  <p class="empty-table-text">Table is empty</p>
+  <div class="empty-table-container">
+    <div>
+      <mat-icon class="empty-table-icon">sentiment_very_dissatisfied</mat-icon>
+    </div>
+    <div>
+      <h2>No users found</h2>
+      <p>To add a user, click the "Add single" or "Add multiple" button.</p>
+    </div>
+  </div>
 </ng-template>

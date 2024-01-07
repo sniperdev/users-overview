@@ -18,6 +18,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -27,22 +28,23 @@ import { EditUserModalComponent } from './components/edit-user-modal/edit-user-m
     UserDetailsComponent,
     EditUserModalComponent,
   ],
-	imports: [
-		CommonModule,
-		UsersRoutingModule,
-		SharedModule,
-		MatButtonModule,
-		MatIconModule,
-		MatDialogModule,
-		MatInputModule,
-		MatSelectModule,
-		ReactiveFormsModule,
-		MatCheckboxModule,
-		NgOptimizedImage,
-		MatProgressSpinnerModule,
-		MatTableModule,
-		MatSortModule,
-		MatPaginatorModule,
-	],
+  imports: [
+    CommonModule,
+    UsersRoutingModule,
+    SharedModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    NgOptimizedImage,
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatCardModule,
+  ],
 })
 export class UsersModule {}
