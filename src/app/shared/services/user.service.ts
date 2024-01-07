@@ -58,9 +58,31 @@ export class UserService {
   public editUser(user: User, uuid: string): void {
     const users = this.users.getValue();
     const userIndex = users.findIndex((u) => u.login.uuid === uuid);
-
+    const currentUser = users[userIndex];
     if (userIndex !== -1) {
-      users[userIndex] = user;
+      users[userIndex] = {
+        ...currentUser,
+        name: {
+          ...currentUser.name,
+          first: user.name.first,
+          last: user.name.last,
+        },
+        location: {
+          ...currentUser.location,
+          country: user.location.country,
+          street: {
+            ...currentUser.location.street,
+            name: user.location.street.name,
+          },
+        },
+        gender: user.gender,
+        email: user.email,
+        login: {
+          ...currentUser.login,
+          username: user.login.username,
+        },
+        phone: user.phone,
+      };
       this.users.next(users);
     }
   }

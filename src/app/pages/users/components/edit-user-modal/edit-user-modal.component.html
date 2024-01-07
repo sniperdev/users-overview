@@ -40,12 +40,12 @@
         <input matInput formControlName="username">
       </mat-form-field>
     </div>
-    <div>
-      <mat-form-field class="form-field-spacer">
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="address">
+    <div formGroupName="location">
+      <mat-form-field class="form-field-spacer" formGroupName="street">
+        <mat-label>Street name</mat-label>
+        <input matInput formControlName="name">
       </mat-form-field>
-      <mat-form-field class="form-field-spacer" formGroupName="location">
+      <mat-form-field class="form-field-spacer" >
         <mat-label>Country</mat-label>
         <mat-select formControlName="country">
           <mat-option *ngFor="let nationality of nationalities" value="{{nationality.name}}">

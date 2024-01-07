@@ -45,6 +45,9 @@ export class EditUserModalComponent implements OnInit {
       }),
       location: this.fb.group({
         country: [this.data.user.location.country, Validators.required],
+        street: this.fb.group({
+          name: [this.data.user.location.street.name, Validators.required],
+        }),
       }),
       gender: [this.data.user.gender, Validators.required],
       email: [this.data.user.email, [Validators.required, Validators.email]],
@@ -55,7 +58,6 @@ export class EditUserModalComponent implements OnInit {
         this.data.user.phone,
         [Validators.required, Validators.pattern(/^\d+$/)],
       ],
-      address: [this.data.user.location.street.name, Validators.required],
     });
   }
 }
