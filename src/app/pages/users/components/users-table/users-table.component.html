@@ -1,5 +1,5 @@
-<ng-container *ngIf="dataSource.data.length; else isEmpty">
-  <table mat-table [dataSource]="dataSource">
+<ng-container *ngIf="(users$ | async) as users">
+  <table mat-table [dataSource]="dataSource" *ngIf="users.length > 0">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
       <td mat-cell *matCellDef="let element"> {{ getName(element) }}</td>
@@ -42,16 +42,16 @@
     [pageSize]="10"
     [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
-</ng-container>
 
-<ng-template #isEmpty>
-  <div class="empty-table-container">
-    <div>
-      <mat-icon class="empty-table-icon">sentiment_very_dissatisfied</mat-icon>
+  <ng-container *ngIf="users.length === 0">
+    <div class="empty-table-container">
+      <div>
+        <mat-icon class="empty-table-icon">sentiment_very_dissatisfied</mat-icon>
+      </div>
+      <div>
+        <h2>No users found</h2>
+        <p>To add a user, click the "Add single" or "Add multiple" button.</p>
+      </div>
     </div>
-    <div>
-      <h2>No users found</h2>
-      <p>To add a user, click the "Add single" or "Add multiple" button.</p>
-    </div>
-  </div>
-</ng-template>
+  </ng-container>
+</ng-container>
