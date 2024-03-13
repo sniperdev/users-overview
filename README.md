@@ -1,27 +1,37 @@
-# UsersOverwiew
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+# Users overview
 
-## Development server
+Users overview is a simple Angular application that allows users to view, add, edit, and delete users. The application uses Angular Materials for the UI and communicates with a RandomAPI to store and retrieve users data.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+LIVE - https://sniperdev.pl/projects/users-overview/
+#### List of users
+Upon opening the application, the current users list is presented.
+#### Add user
+1. Click "Add single" or "Add multiple".
+2. Add all the information required to retrieve a user.
+#### User details
+Detailed user information can be viewed by clicking on a right blue button.
+#### Delete user and Edit user
 
-## Build
+Additionally I used pagination to display users in a more user-friendly way and rxjs to handle the data flow.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Tech Stack
 
-## Running unit tests
+- **Angular**: A framework for building web applications.
+- **Angular Materials**: A UI component library for Angular.
+- **Random API**: Provides endpoints for add/edit/delete users.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install project with npm
 
-## Further help
+```bash
+  npm install
+  ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
